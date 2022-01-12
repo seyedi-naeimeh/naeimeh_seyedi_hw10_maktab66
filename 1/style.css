@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: #56baed;
+}
+.board {
+  /* margin: 20vh auto; */
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  box-shadow: 10px 10px;
+ 
+}
+
+.tile {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  cursor: pointer;
+}
+.fill-x ,.fill-o{
+    cursor: not-allowed;
+}
+
+.fill-x::before,
+.fill-x::after{
+    content: "";
+    position: absolute;
+    width:0.3em;
+    height:1.5em;
+    background: #2C2C2C;
+    font-size: 50px;
+}
+.fill-x::before{
+    transform: rotate(45deg);
+}
+.fill-x::after{
+    transform: rotate(-45deg);
+}
+
+.fill-o::before,
+.fill-o::after{
+    content: "";
+    position: absolute;
+    width:1.5em;
+    height:1.5em;
+    background: #2C2C2C;
+    font-size: 50px;
+    border-radius: 50%;
+}
+.fill-o::before{
+    width:1.5em;
+    height:1.5em;
+}
+.fill-o::after{
+    width:1em;
+    height:1em;
+    background-color: white;
+    
+}
+.game_over::after{
+    display: none;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    
+    justify-content: center;
+    align-items: center;
+    color: rgb(41, 17, 255);
+    font-size: 4rem;
+    font-weight: bold;
+    
+
+}
+.game_over.draw::after{
+    display: flex;
+    background-color: rgba(54, 54, 168, 0.404);
+    content: "it's a Draw";
+}
+.game_over.win-x::after{
+    display: flex;
+    content: "X Wins!";
+}
+.game_over.win-o::after{
+    display: flex;
+    content: "O Wins!";
+}
+.highlight{
+    background-color: chartreuse;
+}
+
+
